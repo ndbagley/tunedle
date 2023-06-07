@@ -1,0 +1,24 @@
+{% extends 'album_guesser/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ album.name }}</a>
+                <small class="text-muted">{{ album.artist }}</small>
+            </div>
+            <p class="article-content">{{ album.image }}</p>
+        </div>
+    </article>
+
+    <form method="POST">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Make Your Guess</legend>
+            {{ form|crispy }} 
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Guess</button>
+        </div>
+    </form>
+{% endblock content %}
