@@ -8,7 +8,7 @@ start = datetime.date(2023, 6, 8)
 delta = datetime.date.today() - start 
 
 def home(request):
-    album_obj = Album.objects.all()[delta.days % 100]
+    album_obj = Album.objects.all()[delta.days % len(Album.objects.all())]
     if request.method == 'POST':
         form = MakeGuess(request.POST)
         guess = form['guess'].value()

@@ -34,14 +34,14 @@ def run():
   
     cid = "1f1c5bbbc4524659be74b57d195ba5ae"
     # Need to paste in secret key before running
-    secret = 'Enter Access Key Here'
+    secret = 'Enter Token Here'
 
     # Authenticating
     client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
     # Pulling playlist
-    playlist_link = "https://open.spotify.com/playlist/1udqwx26htiKljZx4HwVxs?si=c1082668a5b24ace"
+    playlist_link = "https://open.spotify.com/playlist/1kBlE7L9gkFqbz2yAIMLmL?si=d3ca6c6d03b347c3"
     playlist_uri = playlist_link.split("/")[-1].split("?")[0]
     playlist_items = get_all_playlist_items(200, playlist_uri, sp)
-    get_things(playlist_items).to_csv('data/albums.csv')
+    get_things(playlist_items).to_csv('data/albums3.csv')
