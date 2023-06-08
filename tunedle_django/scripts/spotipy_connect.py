@@ -33,7 +33,8 @@ def get_things(playlist):
 def run():
   
     cid = "1f1c5bbbc4524659be74b57d195ba5ae"
-    secret = "682752e5e99645d38ecf2bc3ee5c3abc"
+    # Need to paste in secret key before running
+    secret = 'Enter Access Key Here'
 
     # Authenticating
     client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
