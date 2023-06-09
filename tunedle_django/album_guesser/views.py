@@ -9,12 +9,14 @@ delta = datetime.date.today() - start
 
 def home(request):
     album_obj = Album.objects.all()[delta.days % len(Album.objects.all())]
+    artists = Album.objects.values_list('artist', flat=True).distinct()
+    albums = Album.objects.values_list('name', flat=True).distinct()
     if request.method == 'POST':
         form = MakeGuess(request.POST)
-        guess = form['guess'].value()
-        if guess == album_obj.name:
+        artist = form['artist'].value()
+        album = form['album'].value()
+        if artist == album_obj.artist and album == album_obj.name:
             messages.success(request, 'You got it!')
-
         else:
             messages.error(request, 'Wrong!')
         return redirect('tunedle-home')
@@ -24,7 +26,9 @@ def home(request):
     context = {
         'album': album_obj,
         'form': form,
-        'title': 'Daily'
+        'artists': artists,
+        'albums': albums,
+        'title': 'Daily',
     }
     return render(request, 'album_guesser/home.html', context)
 

@@ -15,7 +15,19 @@
         {% csrf_token %} 
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Make Your Guess</legend>
-            {{ form|crispy }} 
+            <!-- {{ form|crispy }} -->
+            <input id="artist" name="artist" type="text" list="artists" class="form-control">
+                <datalist id="artists">
+                    {% for artist in artists %}
+                        <option>{{ artist }}</option>
+                    {% endfor %}
+                </datalist>
+            <input id="album" name="album" type="text" list="albums" class="form-control">
+                <datalist id="albums">
+                    {% for album in albums %}
+                        <option>{{ album }}</option>
+                    {% endfor %}
+                </datalist>
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Guess</button>

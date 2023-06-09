@@ -11,11 +11,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <link rel="stylesheet" type="text/css" href="{% static 'album_guesser/main.css' %}">
+        
 
         {% if title %}
             <title>Album Guesser - {{ title }}</title>
+            <link rel="icon" href="favicon32.ico">
         {% else %} 
             <title>Album Guesser</title>
+            <link rel="icon" type="image/x-icon" href="/img/favicon32.ico">
         {% endif %}
     </head>
     <body>
