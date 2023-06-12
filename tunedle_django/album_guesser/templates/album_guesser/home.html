@@ -14,23 +14,23 @@
     <form method="POST">
         {% csrf_token %} 
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Make Your Guess</legend>
+            <legend>X Guesses Left</legend>
             <!-- {{ form|crispy }} -->
-            <input id="artist" name="artist" type="text" list="artists" class="form-control">
-                <datalist id="artists">
+            <input id="artist_field" name="artist" type="text" list="artists_dropdown" class="form-control shadow-none" placeholder="Artist">
+                <datalist id="artists_dropdown">
                     {% for artist in artists %}
                         <option>{{ artist }}</option>
                     {% endfor %}
                 </datalist>
-            <input id="album" name="album" type="text" list="albums" class="form-control">
-                <datalist id="albums">
+            <input id="album_field" name="album" type="text" list="albums_dropdown" class="form-control shadow-none" placeholder="Album">
+                <datalist id="albums_dropdown">
                     {% for album in albums %}
                         <option>{{ album }}</option>
                     {% endfor %}
                 </datalist>
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Guess</button>
+            <button class="btn" type="submit">Guess</button>
         </div>
     </form>
 {% endblock content %}

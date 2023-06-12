@@ -16,9 +16,9 @@ def home(request):
         artist = form['artist'].value()
         album = form['album'].value()
         if artist == album_obj.artist and album == album_obj.name:
-            messages.success(request, 'You got it!')
+            messages.success(request, 'Yay baby good job!')
         else:
-            messages.error(request, 'Wrong!')
+            messages.error(request, 'Damn Serena are you retarded?!')
         return redirect('tunedle-home')
     else:
         form = MakeGuess()
